@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Anchor : MonoBehaviour
+public class NetworkManager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
