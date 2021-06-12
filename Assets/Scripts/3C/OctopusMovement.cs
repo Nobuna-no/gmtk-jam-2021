@@ -50,17 +50,7 @@ public class OctopusMovement : AbstractCharacter
     {
         if (this.actionIsActive)
         {
-            switch (propulsionType)
-            {
-                case PropulsionType.Forward:
-                    this.rb.AddForce((transform.position - backTransform.position) * propulsionForce);
-                    break;
-                case PropulsionType.LastDirection:
-                    this.rb.AddForce(lastDirection * propulsionForce);
-                    break;
-                case PropulsionType.VectorToPoisson:
-                    break;
-            }
+            AddForce(propulsionForce);
         }
     }
 
@@ -88,6 +78,8 @@ public class OctopusMovement : AbstractCharacter
     {
         base.StartAction();
 
+        AddForce(impulseForce, ForceMode2D.Impulse);
+        
         if (this.inkBurstParticleSystem)
         {
             this.inkBurstParticleSystem.Play();
@@ -103,6 +95,21 @@ public class OctopusMovement : AbstractCharacter
         this.inkContinuousParticleSystem?.Stop();
     }
 
+    private void AddForce(float force, ForceMode2D forceMode = ForceMode2D.Force)
+    {
+        switch (propulsionType)
+        {
+            case PropulsionType.Forward:
+                this.rb.AddForce((transform.position - backTransform.position) * force, forceMode);
+                break;
+            case PropulsionType.LastDirection:
+                this.rb.AddForce(lastDirection * force, forceMode);
+                break;
+            case PropulsionType.VectorToPoisson:
+                break;
+        }
+    }
+
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -110,22 +117,5 @@ public class OctopusMovement : AbstractCharacter
 
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, this.lastMoveInput);
-    }
-
-    public override void StartAction()
-    {
-        base.StartAction();
-
-        switch (propulsionType)
-        {
-            case PropulsionType.Forward:
-                this.rb.AddForce((transform.position - backTransform.position) * impulseForce, ForceMode2D.Impulse);
-                break;
-            case PropulsionType.LastDirection:
-                this.rb.AddForce(lastDirection * impulseForce, ForceMode2D.Impulse);
-                break;
-            case PropulsionType.VectorToPoisson:
-                break;
-        }
     }
 }
