@@ -7,9 +7,9 @@ using UnityEngine.InputSystem;
 public class Controller : MonoBehaviour
 {
     [SerializeField]
-    private TestCharacterMovement poulpe;
+    private AbstractCharacter poulpe;
     [SerializeField]
-    private TestCharacterMovement poisson;
+    private AbstractCharacter poisson;
 
     private Vector2 movementAction = Vector2.zero;
     private bool featureAction = false;

@@ -448,9 +448,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  propulsionForce: 5
-  backTransform: {fileID: 0}
-  propulsionType: 1
   torqueForce: 1
   angle: 0
 --- !u!58 &400803063
@@ -700,13 +697,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 837489862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0973ab4079a0c0446810aee280de323e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6248c883bff2ce9439cb6ced56ef5dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  propulsionType: 1
   propulsionForce: 5
   backTransform: {fileID: 1469497199}
-  propulsionType: 1
 --- !u!1 &1003470422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,6 +1189,9 @@ MonoBehaviour:
   speed: 5
   propulsionForce: 5
   backTransform: {fileID: 0}
+  rb: {fileID: 0}
+  actionIsActive: 0
+  lastDirection: {x: 0, y: 0}
   propulsionType: 1
 --- !u!233 &1968120012
 HingeJoint2D:

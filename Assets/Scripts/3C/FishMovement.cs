@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishMovement : TestCharacterMovement
+public class FishMovement : AbstractCharacter
 {
     [SerializeField]
     private float torqueForce = 1;
@@ -26,6 +26,8 @@ public class FishMovement : TestCharacterMovement
         //var impulse = (angularChangeInDegrees * Mathf.Deg2Rad) * rb.inertia;
         
         this.rb.AddForce(move * speed);
+        
+        this.rb.AddTorque(move * speed);
 
         // float angle = Mathf.Atan2(move.x, move.y) * Mathf.Rad2Deg * Time.deltaTime;
         // rb.AddTorque(angle * torqueForce);
