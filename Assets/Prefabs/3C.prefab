@@ -9958,6 +9958,10 @@ MonoBehaviour:
   horizontal2GamepadNameJ1: Horizontal2J1
   horizontalGamepadNameJ2: HorizontalJ2
   verticalGamepadNameJ2: VerticalJ2
+  takoAction: Jump
+  fishAction: ActionFish
+  fishActionJ2: ActionFishJ2
+  fishActionJ1: ActionFishJ1
 --- !u!1 &2587888500562522766
 GameObject:
   m_ObjectHideFlags: 0
@@ -10020,7 +10024,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 6c44d376fd3e61340aacb3ecce8de1f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10202,7 +10206,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 6c44d376fd3e61340aacb3ecce8de1f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
