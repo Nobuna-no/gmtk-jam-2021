@@ -32,6 +32,11 @@ public class CharacterCore : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!IsAlive)
+        {
+            return;
+        }
+
         Checkpoint ck = collision.GetComponent<Checkpoint>();
 
         if (ck != null)
