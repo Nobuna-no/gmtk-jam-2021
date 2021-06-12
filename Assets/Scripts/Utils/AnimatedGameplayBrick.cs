@@ -6,19 +6,25 @@ public class AnimatedGameplayBrick : MonoBehaviour
 {
 	[Header("Following this formula: initialPosition + transform.up * displacementCurve.Evaluate(time / frequency) * intensity")]
     [SerializeField] private AnimationCurve displacementCurve = new AnimationCurve();
-	[SerializeField] float intensity = 10;
-	[SerializeField] float frequency = 0.5f;
-
+	[SerializeField] private float intensity = 10;
+	[SerializeField] private float frequency = 0.5f;
+	[SerializeField] private float duration = 2f;
+	[SerializeField] private bool _looping = true;
+	public bool Looping { get { return _looping; } set { _looping = value; } }
 
 	private Vector3 initialpos;
+	private float time;
 
 	private void Awake()
 	{
 		initialpos = transform.position;
+		time = 0;
 	}
 
 	void Update()
     {
-        transform.position = initialpos + transform.up * displacementCurve.Evaluate(Time.time / frequency) * intensity;
+		time += Time.deltaTime;
+		if (_looping || (!_looping && time <= duration))
+			transform.position = initialpos + transform.up * displacementCurve.Evaluate(time / frequency) * intensity;
     }
 }
