@@ -22,7 +22,7 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - Delta: 0.5
-    - Depth: 0
+    - Depth: 0.90049416
     - DownDelta: 0.15
     - UpDelta: 0.1
     m_Colors:
