@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Networking/NetworkingSandbox.unity
+    guid: 102d5557a00857243a6215aff8c8ddc7
+  - enabled: 1
+    path: Assets/Scenes/Networking/RoomWaiting.unity
+    guid: 5f8f3567dd1c8b5448f649ac5b9e5a71
   m_configObjects: {}
