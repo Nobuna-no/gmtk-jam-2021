@@ -4,7 +4,9 @@ using UnityEditor.SceneManagement;
 #endif
 using UnityEngine;
 using UnityEngine.ProBuilder;
+using UnityEngine.ProBuilder.MeshOperations;
 
+[DisallowMultipleComponent]
 public class PolyShapeCollider : MonoBehaviour
 {
 	public float width = 2.0f;
@@ -13,6 +15,9 @@ public class PolyShapeCollider : MonoBehaviour
 	[ContextMenu("Setup")]
     void Setup()
 	{
+		gameObject.name = "Wall";
+		transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 0.0f);
+
 		MeshCollider meshCollider = GetComponent<MeshCollider>();
 		if (meshCollider)
 			DestroyImmediate(meshCollider);
@@ -22,6 +27,7 @@ public class PolyShapeCollider : MonoBehaviour
 			return;
 
 		polyShape.extrude = width;
+		AppendElements.CreateShapeFromPolygon(polyShape);
 
 		PolygonCollider2D collider2D = GetComponentInChildren<PolygonCollider2D>();
 		if (!collider2D)
