@@ -13,7 +13,11 @@ public interface ICharacter
 public abstract class AbstractCharacter : MonoBehaviour, ICharacter
 {
     [SerializeField]
-    protected float speed = 0.5f;
+    protected float movementSpeed = 0.5f;
+    [SerializeField]
+    protected float torqueSpeed = 1;
+    [SerializeField]
+    protected float angle;
 
     protected Rigidbody2D rb;
     protected bool actionIsActive = false;
