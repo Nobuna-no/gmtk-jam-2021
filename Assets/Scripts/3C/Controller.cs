@@ -57,9 +57,9 @@ public class Controller : MonoBehaviour
             else
 			{
                 if (j2Mode == 0)
-                    HandleInputs = MultiplayerActionsConfig2;
-                else
                     HandleInputs = MultiplayerActionsConfig4;
+                else
+                    HandleInputs = MultiplayerActionsConfig2;
             }
         }
         else

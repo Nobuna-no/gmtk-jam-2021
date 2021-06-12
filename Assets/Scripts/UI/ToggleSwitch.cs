@@ -9,8 +9,8 @@ public class ToggleSwitch : MonoBehaviour
     [SerializeField] private Toggle a;
     [SerializeField] private Toggle b;
 
-    public bool IsA { get { return a; } }
-    public bool IsB { get { return b; } }
+    public bool IsA { get { return a.isOn; } }
+    public bool IsB { get { return b.isOn; } }
 
 	private void Awake()
 	{
