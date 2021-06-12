@@ -47,7 +47,7 @@ public class OctopusMovement : AbstractCharacter
     {
         if (this.actionIsActive)
         {
-            this.rb.AddForce((transform.position - backTransform.position) * inkPropulsionForce);
+            AddForce(inkPropulsionForce);
         }
     }
 
@@ -75,8 +75,8 @@ public class OctopusMovement : AbstractCharacter
     {
         base.StartAction();
 
-        this.rb.AddForce((transform.position - backTransform.position) * inkBurstForce, ForceMode2D.Impulse);
-        
+        AddForce(inkBurstForce, ForceMode2D.Impulse);
+
         if (this.inkBurstParticleSystem)
         {
             this.inkBurstParticleSystem.Play();
@@ -90,6 +90,11 @@ public class OctopusMovement : AbstractCharacter
         base.StopAction();
 
         this.inkContinuousParticleSystem?.Stop();
+    }
+
+    private void AddForce(float force, ForceMode2D forceMode = ForceMode2D.Force)
+    {
+        this.rb.AddForce((transform.position - backTransform.position) * force, forceMode);
     }
 
     public void OnDrawGizmos()
