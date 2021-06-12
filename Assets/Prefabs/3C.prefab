@@ -9915,7 +9915,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 2587888501132370621}
   m_Lens:
-    FieldOfView: 75
+    FieldOfView: 90
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -10006,6 +10006,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poulpe: {fileID: 2587888500562522756}
   poisson: {fileID: 2587888501132370622}
+  horizontalKeyboardNameP1: Horizontal
+  horizontalKeyboardNameP2: HorizontalP2
+  verticalKeyboardNameJ1: Vertical
+  verticalKeyboardNameJ2: VerticalP2
+  horizontalGamepadNameJ1: HorizontalJ1
+  verticalGamepadNameJ1: VerticalJ1
+  vertical2GamepadNameJ1: Vertical2J1
+  horizontal2GamepadNameJ1: Horizontal2J1
+  horizontalGamepadNameJ2: HorizontalJ2
+  verticalGamepadNameJ2: VerticalJ2
 --- !u!1 &2587888500562522766
 GameObject:
   m_ObjectHideFlags: 0
