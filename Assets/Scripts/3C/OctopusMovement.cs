@@ -42,16 +42,20 @@ public class OctopusMovement : AbstractCharacter
         this.inkContinuousParticleSystem.Stop();
     }
 
-    // Update is called once per frame
-    protected override void Update()
+    protected void FixedUpdate()
     {
+        if (this.IsDead())
+        {
+            return;
+        }
+
         if (this.actionIsActive)
         {
             AddForce(inkPropulsionForce);
         }
     }
 
-    public override void ApplyMove(Vector2 move)
+    protected override void ApplyMoveInternal(Vector2 move)
     {
         if (inverseControl)
         {
@@ -71,10 +75,8 @@ public class OctopusMovement : AbstractCharacter
         lastMoveInput = move;
     }
 
-    public override void StartAction()
+    protected override void StartActionInternal()
     {
-        base.StartAction();
-
         AddForce(inkBurstForce, ForceMode2D.Impulse);
 
         if (this.inkBurstParticleSystem)
@@ -85,10 +87,8 @@ public class OctopusMovement : AbstractCharacter
         this.inkContinuousParticleSystem?.Play();
     }
 
-    public override void StopAction()
+    protected override void StopActionInternal()
     {
-        base.StopAction();
-
         this.inkContinuousParticleSystem?.Stop();
     }
 
@@ -97,7 +97,7 @@ public class OctopusMovement : AbstractCharacter
         this.rb.AddForce((transform.position - backTransform.position) * force, forceMode);
     }
 
-    public void OnDrawGizmos()
+    protected void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, -this.transform.right);
