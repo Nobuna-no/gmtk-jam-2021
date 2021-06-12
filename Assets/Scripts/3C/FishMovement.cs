@@ -10,10 +10,13 @@ public class FishMovement : AbstractCharacter
     private HingeJoint2D jointComponent;
     [SerializeField]
     private float eulerAngleZ;
+    [SerializeField] 
+    private GameObject mouth;
     protected override void Start()
     {
         base.Start();
         this.jointComponent = this.GetComponent<HingeJoint2D>();
+        mouth.SetActive(false);
     }
 
     Quaternion destinationRotation;
@@ -77,7 +80,17 @@ public class FishMovement : AbstractCharacter
         lastMoveInput = move;
     }
 
-    protected void OnDrawGizmos()
+	protected override void StartActionInternal()
+	{
+        mouth.SetActive(true);
+	}
+
+	protected override void StopActionInternal()
+	{
+        mouth.SetActive(false);
+    }
+
+	protected void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, this.transform.right);
