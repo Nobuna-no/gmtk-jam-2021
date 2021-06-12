@@ -15,8 +15,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 	private string _roomName = "";
 	public string RoomName { get { return _roomName; } }
 
-	private string _isPlayingOnline = "";
-	public string IsPlayingOnline { get { return _isPlayingOnline; } }
+	private bool _isPlayingOnline = false;
+	public bool IsPlayingOnline { get { return _isPlayingOnline; } }
 
 	#region MONOBIHAVIOUR_METHODS
 	private void Awake()
@@ -41,6 +41,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 			// #Critical, we must first and foremost connect to Photon Online Server.
 			PhotonNetwork.ConnectUsingSettings();
 			PhotonNetwork.GameVersion = "1";
+			_isPlayingOnline = true;
 		}
 	}
 	#region PUN_CALLBACKS
