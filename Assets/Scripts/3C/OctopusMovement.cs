@@ -12,12 +12,9 @@ public class OctopusMovement : AbstractCharacter
     }
 
     [SerializeField]
-    private PropulsionType propulsionType = PropulsionType.Forward;
-
+    protected float inkBurstForce = 10;
     [SerializeField]
-    protected float impulseForce = 5;
-    [SerializeField]
-    protected float propulsionForce = 5;
+    protected float inkPropulsionForce = 5;
 
     [SerializeField]
     private Transform backTransform;
@@ -50,7 +47,7 @@ public class OctopusMovement : AbstractCharacter
     {
         if (this.actionIsActive)
         {
-            AddForce(propulsionForce);
+            AddForce(inkPropulsionForce);
         }
     }
 
@@ -78,8 +75,8 @@ public class OctopusMovement : AbstractCharacter
     {
         base.StartAction();
 
-        AddForce(impulseForce, ForceMode2D.Impulse);
-        
+        AddForce(inkBurstForce, ForceMode2D.Impulse);
+
         if (this.inkBurstParticleSystem)
         {
             this.inkBurstParticleSystem.Play();
@@ -97,17 +94,7 @@ public class OctopusMovement : AbstractCharacter
 
     private void AddForce(float force, ForceMode2D forceMode = ForceMode2D.Force)
     {
-        switch (propulsionType)
-        {
-            case PropulsionType.Forward:
-                this.rb.AddForce((transform.position - backTransform.position) * force, forceMode);
-                break;
-            case PropulsionType.LastDirection:
-                this.rb.AddForce(lastDirection * force, forceMode);
-                break;
-            case PropulsionType.VectorToPoisson:
-                break;
-        }
+        this.rb.AddForce((transform.position - backTransform.position) * force, forceMode);
     }
 
     public void OnDrawGizmos()
