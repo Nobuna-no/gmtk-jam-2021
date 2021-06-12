@@ -15,6 +15,8 @@ public class OctopusMovement : AbstractCharacter
     private PropulsionType propulsionType = PropulsionType.Forward;
 
     [SerializeField]
+    protected float impulseForce = 5;
+    [SerializeField]
     protected float propulsionForce = 5;
 
     [SerializeField]
@@ -108,5 +110,22 @@ public class OctopusMovement : AbstractCharacter
 
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, this.lastMoveInput);
+    }
+
+    public override void StartAction()
+    {
+        base.StartAction();
+
+        switch (propulsionType)
+        {
+            case PropulsionType.Forward:
+                this.rb.AddForce((transform.position - backTransform.position) * impulseForce, ForceMode2D.Impulse);
+                break;
+            case PropulsionType.LastDirection:
+                this.rb.AddForce(lastDirection * impulseForce, ForceMode2D.Impulse);
+                break;
+            case PropulsionType.VectorToPoisson:
+                break;
+        }
     }
 }
