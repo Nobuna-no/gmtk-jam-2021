@@ -37,6 +37,7 @@ public abstract class AbstractCharacter : MonoBehaviour, ICharacter
 
     public virtual void Kill()
     {
+        this.StopAction();
         this.isAlive = false;
     }
 
