@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Grain_Material
-  m_Shader: {fileID: -6465566751694194690, guid: dd7b25de5dbd7184a86156ba12ea9bc2,
+  m_Name: Magma_Material
+  m_Shader: {fileID: -6465566751694194690, guid: 9951c270b4d7a074baa8598468599f1b,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - Scale: 3
+    - Vector1_C32580F6: 0.6
     m_Colors:
-    - PrimaryColor: {r: 1, g: 1, b: 1, a: 0}
-    - SecondaryColor: {r: 0.8962264, g: 0.7989943, b: 0.7989943, a: 0}
+    - Color_635DF7FF: {r: 0.5471698, g: 0.20691036, b: 0, a: 0}
+    - Color_9582A5C2: {r: 0, g: 0, b: 0, a: 0}
