@@ -5,8 +5,28 @@ using UnityEngine;
 public class FishMovement : AbstractCharacter
 {
     private Vector2 lastMoveInput;
+    private HingeJoint2D jointComponent;
 
-    // Update is called once per frame
+    protected override void Start()
+    {
+        base.Start();
+        this.jointComponent = this.GetComponent<HingeJoint2D>();
+    }
+
+    public override void Kill()
+    {
+        this.jointComponent.enabled = false;
+        base.Kill();
+    }
+
+    public override void Respawn(Vector3 position)
+    {
+        base.Respawn(position);
+     
+        // Move then reactive the joint.
+        this.jointComponent.enabled = true;
+    }
+
     protected override void ApplyMoveInternal(Vector2 move)
     {
         this.rb.AddForce(move * movementSpeed);

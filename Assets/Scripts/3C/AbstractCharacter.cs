@@ -89,6 +89,7 @@ public abstract class AbstractCharacter : MonoBehaviour, ICharacter
 
     public virtual void Respawn(Vector3 position)
     {
+        rb.rotation = 0;
         rb.position = position;
         this.isAlive = true;
     }

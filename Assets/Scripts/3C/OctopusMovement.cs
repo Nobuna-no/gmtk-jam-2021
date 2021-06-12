@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class OctopusMovement : AbstractCharacter
 {
-    public enum PropulsionType
-    {
-        LastDirection,
-        Forward,
-        VectorToPoisson
-    }
-
     [SerializeField]
     protected float inkBurstForce = 10;
     [SerializeField]

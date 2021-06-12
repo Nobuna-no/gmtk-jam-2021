@@ -10,8 +10,8 @@ public class Controller : MonoBehaviour
     private delegate void ControllerDelegate();
     private event ControllerDelegate HandleInputs;
 
-    [SerializeField] private AbstractCharacter poulpe;
-    [SerializeField] private AbstractCharacter poisson;
+    [SerializeField] private AbstractCharacter tako;
+    [SerializeField] private AbstractCharacter fish;
 
     [Header("Axis Names")]
     [SerializeField] private string horizontalKeyboardNameP1 = "Horizontal";
@@ -24,6 +24,10 @@ public class Controller : MonoBehaviour
     [SerializeField] private string horizontal2GamepadNameJ1 = "Horizontal2J1";
     [SerializeField] private string horizontalGamepadNameJ2 = "HorizontalJ2";
     [SerializeField] private string verticalGamepadNameJ2 = "VerticalJ2";
+    [SerializeField] private string takoAction = "Jump";
+    [SerializeField] private string fishAction = "ActionFish";
+    [SerializeField] private string fishActionJ2 = "ActionFishJ2";
+    [SerializeField] private string fishActionJ1 = "ActionFishJ1";
 
     private Vector2 takoMouvement = Vector2.zero;
     private Vector2 fishMouvement = Vector2.zero;
@@ -33,8 +37,9 @@ public class Controller : MonoBehaviour
     private float verticalP1;
     private float verticalP2;
 
-    private bool featureAction = false;
-    private ICharacter character = null;
+    private bool actionFishDown;
+    private bool actionFishUp;
+
     private void Start()
     {
         // this.character = this.characterComponent.GetComponent<ICharacter>();
@@ -73,6 +78,8 @@ public class Controller : MonoBehaviour
         horizontalP2 = Input.GetAxisRaw(horizontalKeyboardNameP2);
         verticalP1 = Input.GetAxisRaw(verticalKeyboardNameJ1);
         verticalP2 = Input.GetAxisRaw(verticalKeyboardNameJ2);
+        actionFishDown = Input.GetButtonDown(fishAction);
+        actionFishUp = Input.GetButtonUp(fishAction);
     }
 
     //DOUBLE JOYPAD
@@ -82,6 +89,8 @@ public class Controller : MonoBehaviour
         horizontalP2 = Input.GetAxisRaw(horizontalGamepadNameJ2);
         verticalP1 = Input.GetAxisRaw(verticalGamepadNameJ1);
         verticalP2 = Input.GetAxisRaw(verticalGamepadNameJ2);
+        actionFishDown = Input.GetButtonDown(fishActionJ2);
+        actionFishUp = Input.GetButtonUp(fishActionJ2);
     }
 
     //J1: KEYBOARD - J2: JOYPAD
@@ -91,6 +100,8 @@ public class Controller : MonoBehaviour
         horizontalP2 = Input.GetAxisRaw(horizontalGamepadNameJ2);
         verticalP1 = Input.GetAxisRaw(verticalKeyboardNameJ1);
         verticalP2 = Input.GetAxisRaw(verticalGamepadNameJ2);
+        actionFishDown = Input.GetButtonDown(fishActionJ2);
+        actionFishUp = Input.GetButtonUp(fishActionJ2);
     }
 
     //J1: JOYPAD - J2: KEYBOARD
@@ -100,6 +111,8 @@ public class Controller : MonoBehaviour
         horizontalP2 = Input.GetAxisRaw(horizontalKeyboardNameP1);
         verticalP1 = Input.GetAxisRaw(verticalGamepadNameJ1);
         verticalP2 = Input.GetAxisRaw(verticalKeyboardNameJ1);
+        actionFishDown = Input.GetButtonDown(fishAction);
+        actionFishUp = Input.GetButtonUp(fishAction);
     }
 
     //SOLO
@@ -109,6 +122,8 @@ public class Controller : MonoBehaviour
         horizontalP2 = Input.GetAxisRaw(horizontalKeyboardNameP2) != 0 ? Input.GetAxisRaw(horizontalKeyboardNameP2) : Input.GetAxisRaw(horizontal2GamepadNameJ1);
         verticalP1 = Input.GetAxisRaw(verticalKeyboardNameJ1) != 0 ? Input.GetAxisRaw(verticalKeyboardNameJ1) : Input.GetAxisRaw(verticalGamepadNameJ1);
         verticalP2 = Input.GetAxisRaw(verticalKeyboardNameJ2) != 0 ? Input.GetAxisRaw(verticalKeyboardNameJ2) : Input.GetAxisRaw(vertical2GamepadNameJ1);
+        actionFishDown = Input.GetButtonDown(fishAction) || Input.GetButtonDown(fishActionJ1);
+        actionFishUp = Input.GetButtonUp(fishAction) || Input.GetButtonUp(fishActionJ1);
     }
 
 	private void Update()
@@ -123,14 +138,20 @@ public class Controller : MonoBehaviour
         fishMouvement.x = horizontalP2;
         fishMouvement.y = verticalP2;
 
-        poulpe.ApplyMove(takoMouvement);
-        poisson.ApplyMove(fishMouvement);
+        tako.ApplyMove(takoMouvement);
+        fish.ApplyMove(fishMouvement);
 
-        if (Input.GetButtonDown("Jump"))
-            poulpe.StartAction();
+        if (Input.GetButtonDown(takoAction))
+            tako.StartAction();
 
-        if (Input.GetButtonUp("Jump"))
-            poulpe.StopAction();
+        if (Input.GetButtonUp(takoAction))
+            tako.StopAction();
+
+        if (actionFishDown)
+            fish.StartAction();
+
+        if (actionFishUp)
+            fish.StopAction();
 
     }
 
