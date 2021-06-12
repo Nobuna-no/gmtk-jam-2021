@@ -55,11 +55,11 @@ public class CharacterCore : MonoBehaviour
         StartCoroutine(Respawn_Coroutine());
     }
 
-    public void Kill(Vector2 impulse)
+    public void Kill(Vector2 impulse, bool dead)
 	{
         this.fishActor.GetComponent<Rigidbody2D>()?.AddForce(impulse);
         this.squidActor.GetComponent<Rigidbody2D>()?.AddForce(impulse);
-        Kill();
+        if (dead) Kill();
     }
 
     IEnumerator Respawn_Coroutine()
