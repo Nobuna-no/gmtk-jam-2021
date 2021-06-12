@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SeaSkybox_Material
-  m_Shader: {fileID: -6465566751694194690, guid: f5c9ed33128a9ae449fc27c4c551b7aa,
+  m_Name: Wall_Material
+  m_Shader: {fileID: -6465566751694194690, guid: e93301b7cc6ae2347a7bdbcf267ef142,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,11 +20,7 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs: []
-    m_Floats:
-    - Delta: 0.5
-    - Depth: 0.90049416
-    - DownDelta: 0.15
-    - UpDelta: 0.1
+    m_Floats: []
     m_Colors:
-    - DeepColor: {r: 0, g: 0, b: 0, a: 1}
-    - SurfaceColor: {r: 0.4764151, g: 0.7966241, b: 1, a: 1}
+    - Color_CE626743: {r: 0.11672976, g: 0.10145957, b: 0.22641507, a: 0}
+    - Color_F5BEAD0C: {r: 1, g: 0.8755999, b: 0.5990566, a: 0}
