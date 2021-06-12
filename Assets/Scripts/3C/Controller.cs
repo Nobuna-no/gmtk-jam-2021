@@ -10,8 +10,8 @@ public class Controller : MonoBehaviour
     private delegate void ControllerDelegate();
     private event ControllerDelegate HandleInputs;
 
-    [SerializeField] private AbstractCharacter poulpe;
-    [SerializeField] private AbstractCharacter poisson;
+    [SerializeField] private AbstractCharacter tako;
+    [SerializeField] private AbstractCharacter fish;
 
     [Header("Axis Names")]
     [SerializeField] private string horizontalKeyboardNameP1 = "Horizontal";
@@ -33,8 +33,6 @@ public class Controller : MonoBehaviour
     private float verticalP1;
     private float verticalP2;
 
-    private bool featureAction = false;
-    private ICharacter character = null;
     private void Start()
     {
         // this.character = this.characterComponent.GetComponent<ICharacter>();
@@ -123,14 +121,14 @@ public class Controller : MonoBehaviour
         fishMouvement.x = horizontalP2;
         fishMouvement.y = verticalP2;
 
-        poulpe.ApplyMove(takoMouvement);
-        poisson.ApplyMove(fishMouvement);
+        tako.ApplyMove(takoMouvement);
+        fish.ApplyMove(fishMouvement);
 
         if (Input.GetButtonDown("Jump"))
-            poulpe.StartAction();
+            tako.StartAction();
 
         if (Input.GetButtonUp("Jump"))
-            poulpe.StopAction();
+            tako.StopAction();
 
     }
 
