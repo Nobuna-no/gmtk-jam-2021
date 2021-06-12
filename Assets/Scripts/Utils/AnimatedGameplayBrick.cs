@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AnimatedGameplayBrick : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class AnimatedGameplayBrick : MonoBehaviour
 	private Vector3 initialpos;
 	private float time;
 	private bool isPlaying = false;
+	private bool isTimeFrequencyCheck = false;
+
+	[SerializeField] private UnityEvent onPlayStart;
+	[SerializeField] private UnityEvent onPlayStop;
 
 	private void Awake()
 	{
@@ -27,22 +32,41 @@ public class AnimatedGameplayBrick : MonoBehaviour
 
 	void Update()
     {
-		if (isPlaying)
+		if (!isPlaying)
+		{
 			return;
+        }
+
 		time += Time.deltaTime;
 		if (time <= duration)
+		{
 			transform.position = initialpos + transform.up * displacementCurve.Evaluate(time / frequency) * intensity;
+
+			if (_looping && !isTimeFrequencyCheck && time >= frequency)
+            {
+				isTimeFrequencyCheck = true;
+				onPlayStop?.Invoke();
+			}
+		}
 		else
 		{
 			if (_looping)
+			{
+				isTimeFrequencyCheck = false;
+				onPlayStart?.Invoke();
 				time = 0;
+			}
 			else
+			{
+				onPlayStop?.Invoke();
 				isPlaying = false;
+			}
 		}
     }
 
 	public void Play()
 	{
+		onPlayStart?.Invoke();
 		isPlaying = true;
 	}
 
