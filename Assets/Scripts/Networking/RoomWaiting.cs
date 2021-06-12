@@ -23,6 +23,6 @@ public class RoomWaiting : MonoBehaviour
     private void PlayerNumbering_OnPlayerNumberChanged()
     {
         numberPlayers = PlayerNumbering.SortedPlayers.Length;
-        text.text = "ルームで待機中…" + NetworkManager.Instance.RoomName + " " + numberPlayers + "/2 プレイヤー";
+        text.text = "Waiting in room..." + NetworkManager.Instance.RoomName + " " + numberPlayers + "/2 Players";
     }
 }
