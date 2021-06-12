@@ -15,6 +15,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 	private string _roomName = "";
 	public string RoomName { get { return _roomName; } }
 
+	private string _isPlayingOnline = "";
+	public string IsPlayingOnline { get { return _isPlayingOnline; } }
+
 	#region MONOBIHAVIOUR_METHODS
 	private void Awake()
 	{

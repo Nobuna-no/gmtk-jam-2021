@@ -8,7 +8,10 @@ using UnityEngine.UI;
 public class RoomWaiting : MonoBehaviour
 {
     [SerializeField] private Text text;
-    [SerializeField] private int numberPlayers;
+    [SerializeField] private string levelToLoad = "3C Networking";
+    
+    private int numberPlayers;
+
     // Start is called before the first frame update
     private void Start()
     {
