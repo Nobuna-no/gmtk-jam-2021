@@ -32,6 +32,11 @@ public class CharacterCore : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!IsAlive)
+        {
+            return;
+        }
+
         Checkpoint ck = collision.GetComponent<Checkpoint>();
 
         if (ck != null)
@@ -53,6 +58,13 @@ public class CharacterCore : MonoBehaviour
         this.OnDeath?.Invoke();
 
         StartCoroutine(Respawn_Coroutine());
+    }
+
+    public void Kill(Vector2 impulse, bool dead)
+	{
+        this.fishActor.GetComponent<Rigidbody2D>()?.AddForce(impulse);
+        this.squidActor.GetComponent<Rigidbody2D>()?.AddForce(impulse);
+        if (dead) Kill();
     }
 
     IEnumerator Respawn_Coroutine()
