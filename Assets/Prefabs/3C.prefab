@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1234559943}
   - component: {fileID: 1234559945}
   - component: {fileID: 1234559944}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: InkBurst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -810,7 +810,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.3
       mode: 0
       spread: 0
       speed:
@@ -1032,72 +1032,14 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    m_BurstCount: 2
+    m_BurstCount: 1
     m_Bursts:
     - serializedVersion: 2
       time: 0
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 5
-        minScalar: 30
-        maxCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        minCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-      cycleCount: 1
-      repeatInterval: 0.01
-      probability: 1
-    - serializedVersion: 2
-      time: 0.25
-      countCurve:
-        serializedVersion: 2
-        minMaxState: 0
-        scalar: 20
+        scalar: 10
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -4881,7 +4823,7 @@ GameObject:
   - component: {fileID: 1671300020}
   - component: {fileID: 1671300022}
   - component: {fileID: 1671300021}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: InkPropulsion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4989,7 +4931,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0
+    scalar: 0.25
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -6237,8 +6179,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 0, b: 0, a: 1}
-        key1: {r: 0, g: 0.5119117, b: 0.8396226, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 0.028301895, g: 0.028301895, b: 0.028301895, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -9652,7 +9594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2587888499539751591}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 4.0099998, y: -4.16, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2587888499962793099}
@@ -9938,7 +9880,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2587888500055824679}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -10004,8 +9946,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da196b1ff108ca642a063589aa6eb8cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poulpe: {fileID: 2587888500562522756}
-  poisson: {fileID: 2587888501132370622}
+  tako: {fileID: 2587888500562522756}
+  fish: {fileID: 2587888501132370622}
+  horizontalKeyboardNameP1: Horizontal
+  horizontalKeyboardNameP2: HorizontalP2
+  verticalKeyboardNameJ1: Vertical
+  verticalKeyboardNameJ2: VerticalP2
+  horizontalGamepadNameJ1: HorizontalJ1
+  verticalGamepadNameJ1: VerticalJ1
+  vertical2GamepadNameJ1: Vertical2J1
+  horizontal2GamepadNameJ1: Horizontal2J1
+  horizontalGamepadNameJ2: HorizontalJ2
+  verticalGamepadNameJ2: VerticalJ2
 --- !u!1 &2587888500562522766
 GameObject:
   m_ObjectHideFlags: 0
@@ -10020,7 +9972,7 @@ GameObject:
   - component: {fileID: 2587888500562522752}
   - component: {fileID: 2587888500562522756}
   - component: {fileID: 2587888500562522767}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Squid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10034,13 +9986,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2587888500562522766}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2587888500055824679}
-  m_Father: {fileID: 2587888501304660589}
-  m_RootOrder: 3
+  m_Father: {fileID: 466965454381016787}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2587888500562522754
 MeshFilter:
@@ -10130,8 +10082,8 @@ MonoBehaviour:
   movementSpeed: 0.1
   torqueSpeed: 1
   angle: 0
-  inkBurstForce: 5
-  inkPropulsionForce: 2.5
+  inkBurstForce: 10
+  inkPropulsionForce: 5
   backTransform: {fileID: 2587888500055824679}
   inverseControl: 0
   inkBurstParticleSystem: {fileID: 1234559944}
@@ -10166,7 +10118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2587888501097686173}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -10202,7 +10154,7 @@ GameObject:
   - component: {fileID: 2587888501132370623}
   - component: {fileID: 2587888501132370612}
   - component: {fileID: 2587888501132370622}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10216,13 +10168,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2587888501132370620}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2587888501097686173}
-  m_Father: {fileID: 2587888501304660589}
-  m_RootOrder: 2
+  m_Father: {fileID: 466965454381016787}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2587888501132370610
 MeshFilter:
@@ -10376,8 +10328,131 @@ Transform:
   m_Children:
   - {fileID: 2587888499539751610}
   - {fileID: 2587888500397070352}
-  - {fileID: 2587888501132370621}
-  - {fileID: 2587888500562522755}
+  - {fileID: 466965454381016787}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4021949040751383088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5443832451743792874}
+  - component: {fileID: 2453135741368477257}
+  - component: {fileID: 6855199743885381904}
+  - component: {fileID: 261718783}
+  m_Layer: 11
+  m_Name: Core
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5443832451743792874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4021949040751383088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 466965454381016787}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &2453135741368477257
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4021949040751383088}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
+--- !u!114 &6855199743885381904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4021949040751383088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0de02dea7ae3d4cabc4cfeff7d8a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishActor: {fileID: 2587888501132370622}
+  squidActor: {fileID: 2587888500562522756}
+  deathDelay: 3
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  onRespawn:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!50 &261718783
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4021949040751383088}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!1 &8050031179085378510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 466965454381016787}
+  m_Layer: 0
+  m_Name: Character
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &466965454381016787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050031179085378510}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.31, y: -4.16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2587888501132370621}
+  - {fileID: 2587888500562522755}
+  - {fileID: 5443832451743792874}
+  m_Father: {fileID: 2587888501304660589}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
