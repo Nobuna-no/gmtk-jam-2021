@@ -55,6 +55,13 @@ public class CharacterCore : MonoBehaviour
         StartCoroutine(Respawn_Coroutine());
     }
 
+    public void Kill(Vector2 impulse)
+	{
+        this.fishActor.GetComponent<Rigidbody2D>()?.AddForce(impulse);
+        this.squidActor.GetComponent<Rigidbody2D>()?.AddForce(impulse);
+        Kill();
+    }
+
     IEnumerator Respawn_Coroutine()
     {
         yield return new WaitForSeconds(this.deathDelay);
