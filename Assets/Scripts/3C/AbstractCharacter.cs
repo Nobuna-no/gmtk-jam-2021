@@ -37,6 +37,7 @@ public abstract class AbstractCharacter : MonoBehaviour, ICharacter
 
     public virtual void ApplyMove(Vector2 move)
     {
+
     }
 
     public virtual void StartAction()

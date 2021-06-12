@@ -23,8 +23,25 @@ public class OctopusMovement : AbstractCharacter
     [SerializeField]
     private bool inverseControl = false;
 
+    [SerializeField]
+    private ParticleSystem inkBurstParticleSystem;
+    [SerializeField]
+    private ParticleSystem inkContinuousParticleSystem;
+
     private Vector2 lastDirection; 
     private Vector2 lastMoveInput;    
+
+    protected override void Start()
+    {
+        base.Start();
+
+#if !UNITY_EDITOR
+        Debug.Assert(InkBurstParticleSystem != null);
+        Debug.Assert(InkContinuousParticleSystem != null);
+#endif
+
+        this.inkContinuousParticleSystem.Stop();
+    }
 
     // Update is called once per frame
     protected override void Update()
@@ -63,6 +80,25 @@ public class OctopusMovement : AbstractCharacter
         this.rb.AddTorque(angle * torqueSpeed);
 
         lastMoveInput = move;
+    }
+
+    public override void StartAction()
+    {
+        base.StartAction();
+
+        if (this.inkBurstParticleSystem)
+        {
+            this.inkBurstParticleSystem.Play();
+        }
+
+        this.inkContinuousParticleSystem?.Play();
+    }
+
+    public override void StopAction()
+    {
+        base.StopAction();
+
+        this.inkContinuousParticleSystem?.Stop();
     }
 
     public void OnDrawGizmos()
