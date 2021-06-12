@@ -12,12 +12,9 @@ public class OctopusMovement : AbstractCharacter
     }
 
     [SerializeField]
-    private PropulsionType propulsionType = PropulsionType.Forward;
-
+    protected float inkBurstForce = 10;
     [SerializeField]
-    protected float impulseForce = 5;
-    [SerializeField]
-    protected float propulsionForce = 5;
+    protected float inkPropulsionForce = 5;
 
     [SerializeField]
     private Transform backTransform;
@@ -50,17 +47,7 @@ public class OctopusMovement : AbstractCharacter
     {
         if (this.actionIsActive)
         {
-            switch (propulsionType)
-            {
-                case PropulsionType.Forward:
-                    this.rb.AddForce((transform.position - backTransform.position) * propulsionForce);
-                    break;
-                case PropulsionType.LastDirection:
-                    this.rb.AddForce(lastDirection * propulsionForce);
-                    break;
-                case PropulsionType.VectorToPoisson:
-                    break;
-            }
+            this.rb.AddForce((transform.position - backTransform.position) * inkPropulsionForce);
         }
     }
 
@@ -88,6 +75,8 @@ public class OctopusMovement : AbstractCharacter
     {
         base.StartAction();
 
+        this.rb.AddForce((transform.position - backTransform.position) * inkBurstForce, ForceMode2D.Impulse);
+        
         if (this.inkBurstParticleSystem)
         {
             this.inkBurstParticleSystem.Play();
@@ -110,22 +99,5 @@ public class OctopusMovement : AbstractCharacter
 
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, this.lastMoveInput);
-    }
-
-    public override void StartAction()
-    {
-        base.StartAction();
-
-        switch (propulsionType)
-        {
-            case PropulsionType.Forward:
-                this.rb.AddForce((transform.position - backTransform.position) * impulseForce, ForceMode2D.Impulse);
-                break;
-            case PropulsionType.LastDirection:
-                this.rb.AddForce(lastDirection * impulseForce, ForceMode2D.Impulse);
-                break;
-            case PropulsionType.VectorToPoisson:
-                break;
-        }
     }
 }

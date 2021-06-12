@@ -168,6 +168,51 @@ PrefabInstance:
       propertyPath: m_Lens.FieldOfView
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 2587888500562522756, guid: 0923d27732b7bc6429207ce595520b9a,
+        type: 3}
+      propertyPath: torqueSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587888500562522756, guid: 0923d27732b7bc6429207ce595520b9a,
+        type: 3}
+      propertyPath: backTransform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587888500562522756, guid: 0923d27732b7bc6429207ce595520b9a,
+        type: 3}
+      propertyPath: inkBurstForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587888500562522756, guid: 0923d27732b7bc6429207ce595520b9a,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587888500562522756, guid: 0923d27732b7bc6429207ce595520b9a,
+        type: 3}
+      propertyPath: inkPropulsionForce
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587888500562522756, guid: 0923d27732b7bc6429207ce595520b9a,
+        type: 3}
+      propertyPath: inkContinuousParticleSystem
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587888501132370612, guid: 0923d27732b7bc6429207ce595520b9a,
+        type: 3}
+      propertyPath: m_ConnectedRigidBody
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587888501132370612, guid: 0923d27732b7bc6429207ce595520b9a,
+        type: 3}
+      propertyPath: m_Motor.m_MaximumMotorForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587888501132370622, guid: 0923d27732b7bc6429207ce595520b9a,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2587888501304660588, guid: 0923d27732b7bc6429207ce595520b9a,
         type: 3}
       propertyPath: m_Name
