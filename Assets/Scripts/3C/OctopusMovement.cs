@@ -34,6 +34,9 @@ public class OctopusMovement : AbstractCharacter
         base.Start();
 
         this.inkContinuousParticleSystem.Stop();
+
+        GameInstance.Instance.PlayDuo += () => inverseControl = false;
+        GameInstance.Instance.PlaySolo += () => inverseControl = true;    
     }
 
     protected void FixedUpdate()
@@ -48,7 +51,6 @@ public class OctopusMovement : AbstractCharacter
 
         float dtCoef = this.actionIsActive ? 1f : - maxPropulsionIncreaseDuration / propulsionIncreaseResetDuration;
         propulsionIncreaseTime = Mathf.Clamp(propulsionIncreaseTime + Time.deltaTime * dtCoef, 0, maxPropulsionIncreaseDuration);
-        // print("add="+Time.deltaTime * dtCoef + ", time=" + propulsionIncreaseTime);
     }
 
     protected override void ApplyMoveInternal(Vector2 move)
