@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class GameEnd : MonoBehaviour
 {
+    [SerializeField] GameObject canvas;
     [SerializeField] UnityEngine.UI.Image fadeImage;
+    [SerializeField] UnityEngine.UI.Text text;
 
     [SerializeField, Min(0f)] float fadeDelay;
     [SerializeField, Min(0f)] float fadeDuration;
+    [SerializeField, Min(0f)] float delayBeforeReturnToMenu;
+
+    void Awake()
+    {
+        canvas.SetActive(false);
+    }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -17,7 +25,34 @@ public class GameEnd : MonoBehaviour
 
     IEnumerator EndGame()
     {
+        float gameDuration = Time.time - GameInstance.Instance.startTime;
+        
         yield return new WaitForSeconds(fadeDelay);
+
+        canvas.SetActive(true);
+
+        text.text = "You cleared the game in ";
+
+        // Stylax
+        int minutes = (int)(gameDuration / 60f);
+        int seconds = (int)(gameDuration % 60f);
+
+        if (minutes < 1)
+        {
+            text.text += seconds + " seconds!";
+        }
+        else
+        {
+            text.text += minutes + " minute";
+            if (minutes > 1)
+                text.text += "s";
+            if (seconds > 0)
+            {
+                text.text += " and " + seconds + "second";
+                if (seconds > 1)
+                    text.text += "s";
+            }
+        }
 
         while (fadeImage.color.a < 1f)
         {
@@ -27,7 +62,7 @@ public class GameEnd : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(fadeDuration);
+        yield return new WaitForSeconds(delayBeforeReturnToMenu);
 
         UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(0);
     }

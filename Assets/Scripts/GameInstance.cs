@@ -7,6 +7,7 @@ public class GameInstance : MonoBehaviour
     public UnityEngine.Events.UnityAction PlaySolo;
     public UnityEngine.Events.UnityAction PlayDuo;
 
+    public float startTime { get; private set; } = 0f;
     private bool solo = false;
 
     void Awake()
@@ -24,6 +25,8 @@ public class GameInstance : MonoBehaviour
             PlaySolo();
         else
             PlayDuo();
+
+        startTime = Time.time;
     }
 
     public void SetSolo(bool solo)
