@@ -79,7 +79,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _Percent: 1.0030468
+    - _Percent: 0.9988597
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
@@ -87,6 +87,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _Use: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _percent: 0
@@ -95,5 +96,5 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FocalPoint: {r: 0.49501553, g: 0.5983063, b: 0, a: 0}
+    - _FocalPoint: {r: 0.5010865, g: 0.2657202, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
