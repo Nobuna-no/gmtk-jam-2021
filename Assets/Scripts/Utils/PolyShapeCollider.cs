@@ -54,6 +54,6 @@ public class PolyShapeCollider : MonoBehaviour
 		{
 			EditorSceneManager.MarkSceneDirty(prefabStage.scene);
 		}
-#endif
 	}
+#endif
 }
