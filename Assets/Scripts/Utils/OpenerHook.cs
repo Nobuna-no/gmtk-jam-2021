@@ -18,6 +18,8 @@ public class OpenerHook : MonoBehaviour
     private Material originalMaterial;
     private MeshRenderer meshRenderer;
 
+	public float DistanceThreshold => thresholdActivation;
+
 	void Awake()
     {
         statingPos = transform.position;

@@ -5,12 +5,16 @@ public class Rope : MonoBehaviour
 	public Rigidbody2D hook;
 	public HingeJoint2D end;
 	public RopeSegment ropeSegmentPrefab;
-	public int numLinks = 5;
+	public OpenerHook openerSettings;
+	public float distanceOffset = 2.0f;
 	
     void Start()
 	{
+		float height = ropeSegmentPrefab.Height;
+		int count = (int)((openerSettings.DistanceThreshold + distanceOffset) / height);
+
 		RopeSegment prevSegment = null;
-		for (int i = 0; i < numLinks; ++i)
+		for (int i = 0; i < count; ++i)
 		{
 			RopeSegment newSegment = Instantiate(ropeSegmentPrefab);
 			newSegment.transform.parent = transform;

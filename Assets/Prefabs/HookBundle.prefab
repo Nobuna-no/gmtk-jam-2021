@@ -10127,4 +10127,5 @@ MonoBehaviour:
   end: {fileID: 4471140972424308098}
   ropeSegmentPrefab: {fileID: 7886679670711436183, guid: e87fe128266b6ae439e89d46cae597e5,
     type: 3}
-  numLinks: 5
+  openerSettings: {fileID: 4022442797934968531}
+  distanceOffset: 1
