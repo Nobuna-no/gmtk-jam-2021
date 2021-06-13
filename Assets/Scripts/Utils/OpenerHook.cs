@@ -15,6 +15,7 @@ public class OpenerHook : MonoBehaviour
 
     private Vector3 statingPos;
     private Transform _target;
+    private FishMovement _fishTarget;
     private bool _active = false;
     private Material originalMaterial;
     private MeshRenderer meshRenderer;
@@ -69,8 +70,16 @@ public class OpenerHook : MonoBehaviour
 	{
         if (collision.tag == "Mouth")
         {
-            holdFeedback?.SetActive(true);
             _target = collision.transform;
+            _fishTarget = _target.GetComponentInParent<FishMovement>();
+
+            if (_fishTarget.HasSomethingInMouth)
+            {
+                return;
+            }
+
+            holdFeedback?.SetActive(true);
+            _fishTarget.MouthEat();
         }
 
 	}
@@ -79,10 +88,14 @@ public class OpenerHook : MonoBehaviour
 	{
         if (collision.tag == "Mouth")
 		{
+            _fishTarget.MouthRelease();
+
             _target = null;
             holdFeedback?.SetActive(false);
             if (Vector3.Distance(statingPos, transform.position) > thresholdActivation)
                 OnHookUsed?.Invoke();
-		}
+
+            _fishTarget = null;
+        }
     }
 }

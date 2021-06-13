@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public interface ICharacter
 {
@@ -25,6 +26,11 @@ public abstract class AbstractCharacter : MonoBehaviour, ICharacter
     protected float torqueSpeed = 1;
     [SerializeField]
     protected float angle;
+
+    [SerializeField]
+    private UnityEvent onActionStart;
+    [SerializeField]
+    private UnityEvent onActionStop;
 
     protected Rigidbody2D rb;
     protected bool actionIsActive = false;
@@ -67,6 +73,8 @@ public abstract class AbstractCharacter : MonoBehaviour, ICharacter
 
         this.actionIsActive = true;
         this.StartActionInternal();
+
+        this.onActionStart?.Invoke();
     }
 
     public void StopAction()
@@ -78,6 +86,8 @@ public abstract class AbstractCharacter : MonoBehaviour, ICharacter
 
         this.actionIsActive = false;
         this.StopActionInternal();
+        
+        this.onActionStop?.Invoke();
     }
 
     protected virtual void ApplyMoveInternal(Vector2 move)
