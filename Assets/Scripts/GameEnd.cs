@@ -48,7 +48,7 @@ public class GameEnd : MonoBehaviour
                 text.text += "s";
             if (seconds > 0)
             {
-                text.text += " and " + seconds + "second";
+                text.text += " and " + seconds + " second";
                 if (seconds > 1)
                     text.text += "s";
             }
