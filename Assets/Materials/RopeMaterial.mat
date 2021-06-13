@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SeaSkybox_Material
-  m_Shader: {fileID: -6465566751694194690, guid: f5c9ed33128a9ae449fc27c4c551b7aa,
+  m_Name: RopeMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: e1cbc1ca737fa4c41aebf320a9713451,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -21,10 +21,9 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - Delta: 0.5
-    - Depth: 0.056535404
-    - DownDelta: 0.15
-    - UpDelta: 0.1
+    - Vector1_9BD6AE4B: 2
+    - Vector1_E730E04A: 0.5
+    - Vector1_F0F757A7: -45
     m_Colors:
-    - DeepColor: {r: 0, g: 0, b: 0, a: 1}
-    - SurfaceColor: {r: 0.4764151, g: 0.7966241, b: 1, a: 1}
+    - Color_3B3B2E79: {r: 0.30647027, g: 0.35645655, b: 0.6698113, a: 0}
+    - Color_A915E165: {r: 0.13202745, g: 0.05006229, b: 0.4245283, a: 0}

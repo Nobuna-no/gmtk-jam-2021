@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2102282041792385117}
   - component: {fileID: 8814791209316788172}
   - component: {fileID: 807455433728042099}
+  - component: {fileID: 2576436907805616703}
+  - component: {fileID: 3199947813790197010}
   m_Layer: 0
   m_Name: ExplosionFX
   m_TagString: Untagged
@@ -4767,7 +4769,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4812,3 +4814,29 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2576436907805616703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4920754038851851115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e51ecd82a677144b6f5fb4569ce882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3199947813790197010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4920754038851851115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2242de599f7d4ad439d006d3097c7202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  postProcessMaterial: {fileID: 2100000, guid: 9ce3687b58d627449b51bfd5ebb6cb09, type: 2}
+  duration: 2
