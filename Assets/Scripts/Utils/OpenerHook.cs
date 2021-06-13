@@ -24,7 +24,7 @@ public class OpenerHook : MonoBehaviour
 	void Awake()
     {
         statingPos = transform.position;
-        meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
         originalMaterial = meshRenderer?.material;
     }
 

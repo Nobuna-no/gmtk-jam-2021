@@ -48,7 +48,6 @@ public class OctopusMovement : AbstractCharacter
 
         float dtCoef = this.actionIsActive ? 1f : - maxPropulsionIncreaseDuration / propulsionIncreaseResetDuration;
         propulsionIncreaseTime = Mathf.Clamp(propulsionIncreaseTime + Time.deltaTime * dtCoef, 0, maxPropulsionIncreaseDuration);
-        print("add="+Time.deltaTime * dtCoef + ", time=" + propulsionIncreaseTime);
     }
 
     protected override void ApplyMoveInternal(Vector2 move)
