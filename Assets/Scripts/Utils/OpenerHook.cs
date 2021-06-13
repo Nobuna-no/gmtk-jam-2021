@@ -9,13 +9,20 @@ public class OpenerHook : MonoBehaviour
     public UnityEvent OnCollision;
 
     [SerializeField] private float thresholdActivation = 3f;
+    [SerializeField] private Material activatedMaterial;
+
 
     private Vector3 statingPos;
     private Transform _target;
     private bool _active = false;
-    void Awake()
+    private Material originalMaterial;
+    private MeshRenderer meshRenderer;
+
+	void Awake()
     {
         statingPos = transform.position;
+        meshRenderer = GetComponent<MeshRenderer>();
+        originalMaterial = meshRenderer?.material;
     }
 
     private void OnEnable()
@@ -24,6 +31,7 @@ public class OpenerHook : MonoBehaviour
         {
             _active = false;
             transform.position = statingPos;
+            if (meshRenderer != null) meshRenderer.material = originalMaterial;
         }
     }
 
@@ -35,10 +43,17 @@ public class OpenerHook : MonoBehaviour
 
     public void ActivateCollision()
 	{
-        _active = true;
+        StartCoroutine(DelayedActivate());
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
+    private IEnumerator DelayedActivate()
+	{
+        yield return new WaitForSeconds(0.5f);
+        _active = true;
+        if (meshRenderer != null) meshRenderer.material = activatedMaterial;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
 	{
         if (_active)
             OnCollision?.Invoke();

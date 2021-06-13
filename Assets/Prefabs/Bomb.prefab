@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7376d7855c8060646872328288ec61bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -166,6 +166,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   thresholdActivation: 0.5
+  activatedMaterial: {fileID: 2100000, guid: 15ca1a7f9f73c9b49b8b68b766bcd939, type: 2}
 --- !u!114 &5835003277899817591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +193,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.01
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
