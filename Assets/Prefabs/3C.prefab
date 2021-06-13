@@ -388,6 +388,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 4ef70692d6884f84fb8b8eecd89761d8, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5199,6 +5200,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 4ef70692d6884f84fb8b8eecd89761d8, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10062,6 +10064,7 @@ GameObject:
   - component: {fileID: 2587888499549154843}
   - component: {fileID: 2587888499549154845}
   - component: {fileID: 2587888499549154844}
+  - component: {fileID: 6370050351204258211}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -10138,6 +10141,23 @@ MonoBehaviour:
   m_MaximumFOV: 60
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
+--- !u!114 &6370050351204258211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2587888499549154842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 1
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &2587888499962793098
 GameObject:
   m_ObjectHideFlags: 0
@@ -10314,7 +10334,7 @@ GameObject:
   - component: {fileID: 2587888500562522767}
   m_Layer: 10
   m_Name: Squid
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10333,6 +10353,7 @@ Transform:
   - {fileID: 5032059880454110697}
   - {fileID: 2587888500055824679}
   - {fileID: 544050638}
+  - {fileID: 7026010329003119789}
   m_Father: {fileID: 466965454381016787}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15205,6 +15226,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 4ef70692d6884f84fb8b8eecd89761d8, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15263,7 +15285,7 @@ GameObject:
   - component: {fileID: 2587888501132370622}
   m_Layer: 10
   m_Name: Fish
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15434,7 +15456,7 @@ GameObject:
   - component: {fileID: 261718783}
   m_Layer: 11
   m_Name: Core
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15449,8 +15471,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 7026010329003119789}
+  m_Children: []
   m_Father: {fileID: 466965454381016787}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15749,12 +15770,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5443832451743792874}
+    m_TransformParent: {fileID: 2587888500562522755}
     m_Modifications:
     - target: {fileID: -4216859302048453862, guid: e8771123edf2a98459f2ccade4ff23d0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e8771123edf2a98459f2ccade4ff23d0,
         type: 3}
@@ -15774,12 +15795,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: e8771123edf2a98459f2ccade4ff23d0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.929
+      value: 2.629
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e8771123edf2a98459f2ccade4ff23d0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.01
+      value: -0.010000229
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e8771123edf2a98459f2ccade4ff23d0,
         type: 3}
@@ -15794,7 +15815,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: e8771123edf2a98459f2ccade4ff23d0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e8771123edf2a98459f2ccade4ff23d0,
         type: 3}
@@ -15810,6 +15831,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e8771123edf2a98459f2ccade4ff23d0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: e8771123edf2a98459f2ccade4ff23d0,
         type: 3}

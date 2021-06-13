@@ -25,7 +25,7 @@ public class GameEnd : MonoBehaviour
 
     IEnumerator EndGame()
     {
-        float gameDuration = Time.time - GameInstance.Instance.startTime;
+        float gameDuration = Time.time - (GameInstance.Instance ? GameInstance.Instance.startTime : 0f);
         
         yield return new WaitForSeconds(fadeDelay);
 
