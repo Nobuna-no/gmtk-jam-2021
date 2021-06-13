@@ -51,6 +51,19 @@ public class CharacterCore : MonoBehaviour
         this.squidActor.Teleport(destination + Vector3.left);
     }
 
+    public void DisableControls()
+    {
+        if (!this.IsAlive)
+        {
+            return;
+        }
+
+        this.isAlive = false;
+
+        this.fishActor.Kill();
+        this.squidActor.Kill();
+    }
+
     public void Kill()
     {
         if (!this.IsAlive)
