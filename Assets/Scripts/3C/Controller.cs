@@ -10,6 +10,7 @@ public class Controller : MonoBehaviour
     private delegate void ControllerDelegate();
     private event ControllerDelegate HandleInputs;
 
+    [SerializeField] private CharacterCore core;
     [SerializeField] private AbstractCharacter tako;
     [SerializeField] private AbstractCharacter fish;
 
@@ -29,6 +30,11 @@ public class Controller : MonoBehaviour
     [SerializeField] private string fishActionJ2 = "ActionFishJ2";
     [SerializeField] private string fishActionJ1 = "ActionFishJ1";
 
+
+    [Header("Debug")]
+    [SerializeField] private Checkpoint[] checkpoints;
+
+
     private Vector2 takoMouvement = Vector2.zero;
     private Vector2 fishMouvement = Vector2.zero;
 
@@ -44,6 +50,8 @@ public class Controller : MonoBehaviour
     {
         // this.character = this.characterComponent.GetComponent<ICharacter>();
         InitController();
+
+        checkpoints = FindObjectsOfType<Checkpoint>();
     }
 
     private void InitController()
@@ -153,6 +161,29 @@ public class Controller : MonoBehaviour
         if (actionFishUp)
             fish.StopAction();
 
+
+#if UNITY_EDITOR
+        TryTeleport(KeyCode.F1, 0);
+        TryTeleport(KeyCode.F2, 1);
+        TryTeleport(KeyCode.F3, 2);
+        TryTeleport(KeyCode.F4, 3);
+        TryTeleport(KeyCode.F5, 4);
+        TryTeleport(KeyCode.F6, 5);
+        TryTeleport(KeyCode.F7, 6);
+        TryTeleport(KeyCode.F8, 7);
+        TryTeleport(KeyCode.F9, 8);
+        TryTeleport(KeyCode.F10, 9);
+        TryTeleport(KeyCode.F11, 10);
+        TryTeleport(KeyCode.F12, 11);
+#endif
     }
 
+
+    private void TryTeleport(KeyCode key, int index)
+    {
+        if (Input.GetKeyDown(key) && checkpoints.Length > index)
+        {
+            core.Teleport(checkpoints[index].transform.position);
+        }
+    }
 }

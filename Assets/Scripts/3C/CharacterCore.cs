@@ -44,6 +44,13 @@ public class CharacterCore : MonoBehaviour
             this.lastCheckpoint = ck;
         }
     }
+
+    public void Teleport(Vector3 destination)
+    {
+        this.fishActor.Teleport(destination + Vector3.right);
+        this.squidActor.Teleport(destination + Vector3.left);
+    }
+
     public void Kill()
     {
         if (!this.IsAlive)
