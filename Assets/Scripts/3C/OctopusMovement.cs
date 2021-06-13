@@ -7,7 +7,11 @@ public class OctopusMovement : AbstractCharacter
     [SerializeField]
     protected float inkBurstForce = 10;
     [SerializeField]
-    protected float inkPropulsionForce = 5;
+    protected AnimationCurve inkPropulsionCurve;
+    [SerializeField, Min(0.01f)]
+    protected float maxPropulsionIncreaseDuration = 1f;
+    [SerializeField, Min(0.01f)]
+    protected float propulsionIncreaseResetDuration = 1f;
 
     [SerializeField]
     private Transform backTransform;
@@ -21,7 +25,9 @@ public class OctopusMovement : AbstractCharacter
     private ParticleSystem inkContinuousParticleSystem;
 
     private Vector2 lastDirection; 
-    private Vector2 lastMoveInput;    
+    private Vector2 lastMoveInput;
+
+    private float propulsionIncreaseTime = 0f;
 
     protected override void Start()
     {
@@ -38,9 +44,11 @@ public class OctopusMovement : AbstractCharacter
         }
 
         if (this.actionIsActive)
-        {
-            AddForce(inkPropulsionForce);
-        }
+            AddForce(inkPropulsionCurve.Evaluate(propulsionIncreaseTime / maxPropulsionIncreaseDuration));
+
+        float dtCoef = this.actionIsActive ? 1f : - maxPropulsionIncreaseDuration / propulsionIncreaseResetDuration;
+        propulsionIncreaseTime = Mathf.Clamp(propulsionIncreaseTime + Time.deltaTime * dtCoef, 0, maxPropulsionIncreaseDuration);
+        print("add="+Time.deltaTime * dtCoef + ", time=" + propulsionIncreaseTime);
     }
 
     protected override void ApplyMoveInternal(Vector2 move)
@@ -65,7 +73,7 @@ public class OctopusMovement : AbstractCharacter
 
     protected override void StartActionInternal()
     {
-        AddForce(inkBurstForce, ForceMode2D.Impulse);
+        AddForce(inkBurstForce, ForceMode2D.Impulse);       
 
         if (this.inkBurstParticleSystem)
         {
