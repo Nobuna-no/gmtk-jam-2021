@@ -15,7 +15,7 @@ public class GameInstance : MonoBehaviour
         if (Instance != null && Instance != this)
             Destroy(this);
 
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this.gameObject);
         Instance = this;
     }
 
