@@ -34,6 +34,9 @@ public class OctopusMovement : AbstractCharacter
         base.Start();
 
         this.inkContinuousParticleSystem.Stop();
+
+        GameInstance.Instance.PlayDuo += () => inverseControl = false;
+        GameInstance.Instance.PlaySolo += () => inverseControl = true;    
     }
 
     protected void FixedUpdate()
