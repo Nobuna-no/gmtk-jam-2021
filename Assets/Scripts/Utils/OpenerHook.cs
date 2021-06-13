@@ -10,7 +10,7 @@ public class OpenerHook : MonoBehaviour
 
     [SerializeField] private float thresholdActivation = 3f;
     [SerializeField] private Material activatedMaterial;
-
+    [SerializeField] private GameObject holdFeedback;
 
     private Vector3 statingPos;
     private Transform _target;
@@ -27,6 +27,7 @@ public class OpenerHook : MonoBehaviour
 
     private void OnEnable()
     {
+        holdFeedback?.SetActive(false);
         if (_active)
         {
             _active = false;
@@ -61,8 +62,11 @@ public class OpenerHook : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.tag == "Mouth")
+        if (collision.tag == "Mouth")
+        {
+            holdFeedback?.SetActive(true);
             _target = collision.transform;
+        }
 
 	}
 
@@ -71,6 +75,7 @@ public class OpenerHook : MonoBehaviour
         if (collision.tag == "Mouth")
 		{
             _target = null;
+            holdFeedback?.SetActive(false);
             if (Vector3.Distance(statingPos, transform.position) > thresholdActivation)
                 OnHookUsed?.Invoke();
 		}
