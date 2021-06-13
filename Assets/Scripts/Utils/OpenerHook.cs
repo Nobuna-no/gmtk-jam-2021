@@ -11,6 +11,7 @@ public class OpenerHook : MonoBehaviour
     [SerializeField] private float thresholdActivation = 3f;
     [SerializeField] private Material activatedMaterial;
     [SerializeField] private GameObject holdFeedback;
+    [SerializeField] private GameObject activeFeedback = null;
 
     private Vector3 statingPos;
     private Transform _target;
@@ -18,16 +19,19 @@ public class OpenerHook : MonoBehaviour
     private Material originalMaterial;
     private MeshRenderer meshRenderer;
 
+	public float DistanceThreshold => thresholdActivation;
+
 	void Awake()
     {
         statingPos = transform.position;
-        meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
         originalMaterial = meshRenderer?.material;
     }
 
     private void OnEnable()
     {
         holdFeedback?.SetActive(false);
+        if (activeFeedback != null) activeFeedback.SetActive(false);
         if (_active)
         {
             _active = false;
@@ -52,6 +56,7 @@ public class OpenerHook : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         _active = true;
         if (meshRenderer != null) meshRenderer.material = activatedMaterial;
+        activeFeedback?.SetActive(true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
