@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Coral_Material7
+  m_Name: Coral_Material
   m_Shader: {fileID: -6465566751694194690, guid: dd7b25de5dbd7184a86156ba12ea9bc2,
     type: 3}
   m_ShaderKeywords: 
@@ -21,7 +21,9 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - Scale: 3
+    - Scale: 7.33
     m_Colors:
-    - PrimaryColor: {r: 1, g: 1, b: 1, a: 0}
-    - SecondaryColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0}
+    - Color_4F28673E: {r: 0.36792448, g: 0.36792448, b: 0.36792448, a: 0}
+    - Color_E6DAE00C: {r: 0.7830188, g: 0.7830188, b: 0.7830188, a: 0}
+    - PrimaryColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 0}
+    - SecondaryColor: {r: 0, g: 0, b: 0, a: 0}
