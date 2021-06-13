@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 8772088660014269151}
   - component: {fileID: 8772088660014269144}
   - component: {fileID: 8772088660014269150}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cce34f07b175b5499a19197e6e6bdf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  core: {fileID: 0}
   fadeImage: {fileID: 8772088659909537465}
   fadeDelay: 2
   fadeDuration: 2
