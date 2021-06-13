@@ -12,6 +12,9 @@ public class AnimatedGameplayBrick : MonoBehaviour
 	[SerializeField] private float duration = 2f;
 	[SerializeField] private bool autoPlay = true;
 	[SerializeField] private bool _looping = true;
+
+	[SerializeField] private float delayBeforeStart = 0;
+
 	public bool Looping { get { return _looping; } set { _looping = value; } }
 
 	private Vector3 initialpos;
@@ -27,7 +30,7 @@ public class AnimatedGameplayBrick : MonoBehaviour
 		initialpos = transform.position;
 		time = 0;
 		if (autoPlay)
-			Play();
+			StartCoroutine(PlayDelayed());
 	}
 
 	void Update()
@@ -63,6 +66,12 @@ public class AnimatedGameplayBrick : MonoBehaviour
 			}
 		}
     }
+
+	private IEnumerator PlayDelayed()
+	{
+		yield return new WaitForSeconds(delayBeforeStart);
+		Play();
+	}
 
 	public void Play()
 	{
