@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FishMovement : AbstractCharacter
 {
@@ -12,6 +13,14 @@ public class FishMovement : AbstractCharacter
     private float eulerAngleZ;
     [SerializeField] 
     private GameObject mouth;
+    [SerializeField]
+    private UnityEvent OnMouthEatSomething;
+
+
+
+    private bool hasSomethingInMouth = false;
+    public bool HasSomethingInMouth => hasSomethingInMouth;
+
     protected override void Start()
     {
         base.Start();
@@ -54,6 +63,17 @@ public class FishMovement : AbstractCharacter
         }
 
         // fishVisual.transform.rotation = Quaternion.LerpUnclamped(fishVisual.transform.rotation, destinationRotation, Time.deltaTime);
+    }
+
+    public void MouthEat()
+    {
+        OnMouthEatSomething?.Invoke();
+        hasSomethingInMouth = true;
+    }
+
+    public void MouthRelease()
+    {
+        hasSomethingInMouth = false;
     }
 
     public override void Kill()
