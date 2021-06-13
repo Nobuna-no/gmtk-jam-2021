@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameEnd : MonoBehaviour
 {
-    [SerializeField] CharacterCore core;
     [SerializeField] UnityEngine.UI.Image fadeImage;
 
     [SerializeField, Min(0f)] float fadeDelay;
@@ -12,7 +11,7 @@ public class GameEnd : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        core.Kill();
+        collider.GetComponent<CharacterCore>()?.DisableControls();
         StartCoroutine(EndGame());
     }
 
@@ -23,9 +22,7 @@ public class GameEnd : MonoBehaviour
         while (fadeImage.color.a < 1f)
         {
             Color c = fadeImage.color;
-            float v = Mathf.Clamp(c.a + Time.deltaTime / fadeDuration, 0f, 1f);
-            print("c.a="+c.a+", t="+Time.deltaTime+", fadeDur="+fadeDuration+"result unclamped="+ (c.a + Time.deltaTime / fadeDuration+"result clamped="+v));
-            c.a = v;
+            c.a = Mathf.Clamp(c.a + Time.deltaTime / fadeDuration, 0f, 1f);
             fadeImage.color = c;
             yield return null;
         }
