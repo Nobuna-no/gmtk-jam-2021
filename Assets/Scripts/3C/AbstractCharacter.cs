@@ -12,6 +12,8 @@ public interface ICharacter
     void StopAction();
 
     void Respawn(Vector3 position);
+
+    void Teleport(Vector3 position);
 }
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -95,4 +97,9 @@ public abstract class AbstractCharacter : MonoBehaviour, ICharacter
         this.isAlive = true;
     }
 
+    public virtual void Teleport(Vector3 position)
+    {
+        rb.rotation = 0;
+        rb.position = position;
+    }
 }

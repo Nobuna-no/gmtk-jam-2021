@@ -27,11 +27,6 @@ public class OctopusMovement : AbstractCharacter
     {
         base.Start();
 
-#if !UNITY_EDITOR
-        Debug.Assert(InkBurstParticleSystem != null);
-        Debug.Assert(InkContinuousParticleSystem != null);
-#endif
-
         this.inkContinuousParticleSystem.Stop();
     }
 
