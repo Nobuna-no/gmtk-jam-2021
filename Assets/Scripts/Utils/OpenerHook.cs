@@ -9,21 +9,30 @@ public class OpenerHook : MonoBehaviour
     public UnityEvent OnCollision;
 
     [SerializeField] private float thresholdActivation = 3f;
+    [SerializeField] private Material activatedMaterial;
+    [SerializeField] private GameObject holdFeedback;
 
     private Vector3 statingPos;
     private Transform _target;
     private bool _active = false;
-    void Awake()
+    private Material originalMaterial;
+    private MeshRenderer meshRenderer;
+
+	void Awake()
     {
         statingPos = transform.position;
+        meshRenderer = GetComponent<MeshRenderer>();
+        originalMaterial = meshRenderer?.material;
     }
 
     private void OnEnable()
     {
+        holdFeedback?.SetActive(false);
         if (_active)
         {
             _active = false;
             transform.position = statingPos;
+            if (meshRenderer != null) meshRenderer.material = originalMaterial;
         }
     }
 
@@ -35,10 +44,17 @@ public class OpenerHook : MonoBehaviour
 
     public void ActivateCollision()
 	{
-        _active = true;
+        StartCoroutine(DelayedActivate());
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
+    private IEnumerator DelayedActivate()
+	{
+        yield return new WaitForSeconds(0.5f);
+        _active = true;
+        if (meshRenderer != null) meshRenderer.material = activatedMaterial;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
 	{
         if (_active)
             OnCollision?.Invoke();
@@ -46,8 +62,11 @@ public class OpenerHook : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.tag == "Mouth")
+        if (collision.tag == "Mouth")
+        {
+            holdFeedback?.SetActive(true);
             _target = collision.transform;
+        }
 
 	}
 
@@ -56,6 +75,7 @@ public class OpenerHook : MonoBehaviour
         if (collision.tag == "Mouth")
 		{
             _target = null;
+            holdFeedback?.SetActive(false);
             if (Vector3.Distance(statingPos, transform.position) > thresholdActivation)
                 OnHookUsed?.Invoke();
 		}
