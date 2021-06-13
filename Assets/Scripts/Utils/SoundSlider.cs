@@ -16,8 +16,8 @@ public class SoundSlider : MonoBehaviour
     {
         slider = GetComponent<Slider>();
         float f;
-		mixer.GetFloat(Mathf.exfloatName, out f);
-        slider.value = f;
+		mixer.GetFloat(floatName, out f);
+        slider.value = Mathf.Exp(10) * (f / 20.0f) + 0.5f;
     }
 
     public void OnValueChanged()
